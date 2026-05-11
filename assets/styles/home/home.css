@@ -1,0 +1,284 @@
+.home-hero {
+    padding: 0;
+}
+
+.banner-hero {
+    height: 100vh;
+    background-image: url('/images/home/atelier-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(46, 37, 31, 0.603); /* ajuste l’opacité ici */
+    z-index: 1;
+}
+ 
+.title-logo {
+    position: relative;
+    z-index: 2;
+}
+
+.title-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 2rem;
+    width: 30%;
+
+    h1 {
+        font-size: var(--h1-size);
+        margin: 0;
+        margin-bottom: 1rem;
+        font-weight: normal;
+    }
+
+    img {
+        width: 16rem;
+        margin-bottom: 2rem;
+    }
+
+    p {
+        font-size: var(--text-xl);
+        line-height: var(--line-height-xl);
+        margin-top: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    a {
+        font-weight: 600;
+    }
+}
+
+section h2 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #2a2118;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+}
+
+/* --- Titre centré --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+ 
+.container p {
+    color: #6b5e4e;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* --- Icône ronde --- */
+.card-icon {
+    background-color: #DAE0D3;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+/* =============================================
+   Section "L'art du bois"
+   ============================================= */
+.home-wood-art {
+    background-color: var(--bg-grey);
+}
+ 
+.home-wood-art {
+    display: flex;
+    flex-direction: column;
+}
+ 
+/* --- Grille des cartes --- */
+.wood-art-cards {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+ 
+.wood-art-card {
+    background-color: #F1EDEA;
+    border-radius: 16px;
+    padding: 40px 32px;
+    flex: 1;
+    max-width: 320px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.wood-art-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.28);
+}
+ 
+ 
+.card-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.wood-art-card .card-icon svg, .truck svg {
+    color: #559C4F;
+}
+
+ 
+/* --- Texte carte --- */
+.wood-art-card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2a2118;
+    margin-bottom: 12px;
+}
+ 
+.wood-art-card p {
+    font-size: 0.92rem;
+    color: #6b5e4e;
+    line-height: 1.65;
+}
+ 
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .wood-art-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .wood-art-card {
+        max-width: 100%;
+        width: 100%;
+    }
+ 
+    .home-wood-art-title h2 {
+        font-size: 1.7rem;
+    }
+}
+
+/* =============================================
+   Section "Nos créations" — Photo Rutile
+   ============================================= */
+.home-our-creations {
+    background-color: var(--bg-grey-darker);
+
+    .btn-primary {
+        margin-top: 1rem;
+    }
+}
+
+
+.our-creations-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px 0;
+    margin: 0 auto;
+}
+
+.our-creations-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Image --- */
+.our-creations-card .card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.our-creations-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.our-creations-card:hover .card-image img {
+    transform: scale(1.04);
+}
+
+/* --- Texte --- */
+.our-creations-card h3 {
+    font-weight: 600;
+    color: #2a2118;
+    margin: 16px 16px 4px;
+}
+
+.our-creations-card .card-description {
+    font-size: 0.88rem;
+    color: #8a7d6e;
+    margin: 0 16px 16px;
+}
+
+/* =============================================
+   Section "Comment acheter ?" — Photo Rutile
+   ============================================= */
+
+   .how-buy-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.map {
+    background-color: #EEE0CF;
+
+    svg {
+        color: #BD690A;
+    }
+}
+
+.phone {
+    background-color: #D7D5EE;
+    
+    svg {
+        color: #2020D5;
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) { 
+    .our-creations-cards, .how-buy-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .home-wood-art {
+        padding: 40px 20px !important;
+    }
+    .our-creations-cards {
+        grid-template-columns: 1fr;
+    }
+}

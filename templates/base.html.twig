@@ -17,8 +17,30 @@
         <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
         <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
         {% endif %}
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        <header>
+         {% block header %}
+         {% include 'layouts/navbar.html.twig' %}
+         {% endblock %}
+        </header>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+        {% endblock %}
+
+        <footer>
+            {% block footer %}
+            <div class="container">
+            <p class="footer-title">Photos Rutile</p>
+            <p class="footer-description">Artisanat en bois — Pièces uniques faites main</p>
+            <p class="footer-address">123 Rue de la Photographie, 75001 Paris</p>
+            <p class="footer-copyright">© 2026 Photos Rutile. Tous droits réservés.</p>
+            </div>
+            {% endblock %}
+        </footer>
     </body>
 </html>

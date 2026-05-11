@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+{% block importmap %}
+	{{ importmap(['app','home','navbar']) }}
+{% endblock %}
+
+{% block main %}
+	<section class="home-hero">
+		<div class="banner-hero">
+			<div class="title-logo">
+				<img src="{{ asset('images/logo/photo-rutile.webp') }}" alt="PhotoRutile">
+				<h1>PhotoRutile</h1>
+				<p>Artisanat en bois — Des créations uniques, façonnées à la main avec passion</p>
+				<a class="btn-primary" href="#">Découvrir les créations</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-wood-art">
+		<div class="container">
+			<div class="section-title">
+				<h2>L'art du bois</h2>
+				<p>Chez PhotoRutile, chaque pièce raconte une histoire. Du choix de l'essence à la finition, tout est réalisé avec minutie pour créer des objets qui traversent le temps.</p>
+			</div>
+
+			<div class="wood-art-cards">
+				<div class="wood-art-card">
+					<div class="card-icon">
+						{{ iconsCollection.tree|raw }}
+					</div>
+					<h3>Bois naturel</h3>
+					<p>Des essences sélectionnées avec soin pour chaque pièce unique.</p>
+				</div>
+				<div class="wood-art-card">
+					<div class="card-icon">
+						{{ iconsCollection.hand|raw }}
+					</div>
+					<h3>Fait main</h3>
+					<p>Chaque création est entièrement façonnée à la main dans l'atelier.</p>
+				</div>
+				<div class="wood-art-card">
+					<div class="card-icon">
+						{{ iconsCollection.heart|raw }}
+					</div>
+					<h3>Avec passion</h3>
+					<p>Un savoir-faire artisanal transmis et perfectionné au fil des années.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-our-creations">
+		<div class="container">
+			<div class="section-title">
+				<h2>Nos créations</h2>
+				<p>Chaque pièce est unique, réalisée avec des bois soigneusement choisis.</p>
+			</div>
+
+			<div class="our-creations-cards">
+				<div class="our-creations-card">
+					<div class="card-image">
+						<img src="https://picsum.photos/600/400?random=1" alt="Planche à découper">
+					</div>
+					<h3>Planche à découper</h3>
+					<p class="card-description text-muted">Bois massif sculpté et fini à la main.</p>
+				</div>
+				<div class="our-creations-card">
+					<div class="card-image">
+						<img src="https://picsum.photos/600/400?random=2" alt="Bol tourné">
+					</div>
+					<h3>Bol tourné</h3>
+					<p class="card-description text-muted">Tournage sur bois.</p>
+				</div>
+				<div class="our-creations-card">
+					<div class="card-image">
+						<img src="https://picsum.photos/600/400?random=3" alt="Bol tourné">
+					</div>
+					<h3>Boîte à bijoux</h3>
+					<p class="card-description text-muted">Gravure artisanale sur mesure.</p>
+				</div>
+				<div class="our-creations-card">
+					<div class="card-image">
+						<img src="https://picsum.photos/600/400?random=4" alt="Calendrier de l'Avent">
+					</div>
+					<h3>Calendrier de l'Avent</h3>
+					<p class="card-description text-muted">Bois massif sculpté et décoré.</p>
+				</div>
+				<div class="our-creations-card">
+					<div class="card-image">
+						<img src="https://picsum.photos/600/400?random=5" alt="Porte-clefs">
+					</div>
+					<h3>Porte-clefs</h3>
+					<p class="card-description text-muted">Artisanat traditionnel.</p>
+				</div>
+			</div>
+		<a href="#" class="btn-primary">Voir tout</a>
+		</div>
+	</section>
+
+	<section class="how-buy">
+	<div class="container">
+		<div class="section-title">
+			<h2>Comment acheter ?</h2>
+			<p>Les achats se font directement sur place à l'atelier. Livraison possible à proximité.</p>
+		</div>
+	<div class="how-buy-cards">
+				<div class="how-buy-card">
+					<div class="card-icon map">
+						{{ iconsCollection.map|raw }}
+					</div>
+					<h3>Sur place</h3>
+					<p>Venez découvrir les créations directement à l'atelier et repartez avec votre pièce.</p>
+				</div>
+				<div class="how-buy-card">
+					<div class="card-icon truck">
+						{{ iconsCollection.truck|raw }}
+					</div>
+					<h3>Livraison locale</h3>
+					<p>Livraison possible si vous n'habitez pas trop loin. Contactez-nous pour en discuter.</p>
+				</div>
+				<div class="how-buy-card">
+					<div class="card-icon phone">
+						{{ iconsCollection.phone|raw }}
+					</div>
+					<h3>Nous contacter</h3>
+					<p>Pour toute question ou commande spéciale, n'hésitez pas à nous appeler.</p>
+				</div>
+			</div>
+	</div>
+	</section>
+{% endblock %}

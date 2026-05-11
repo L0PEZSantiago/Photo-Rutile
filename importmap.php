@@ -25,4 +25,14 @@ return [
     '@hotwired/turbo' => [
         'version' => '8.0.23',
     ],
+
+    'home' => [
+        'path' => './assets/scripts/home/home.js',
+        'entrypoint' => true,
+    ],
+
+    'navbar' => [
+        'path' => './assets/scripts/navbar.js',
+        'entrypoint' => true,
+    ],
 ];
