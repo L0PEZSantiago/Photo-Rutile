@@ -27,12 +27,22 @@ return [
     ],
 
     'home' => [
-        'path' => './assets/scripts/home/home.js',
+        'path' => './assets/scripts/frontOffice/home/home.js',
         'entrypoint' => true,
     ],
 
     'navbar' => [
-        'path' => './assets/scripts/navbar.js',
+        'path' => './assets/scripts/frontOffice/navbar.js',
+        'entrypoint' => true,
+    ],
+    
+    'contact' => [
+        'path' => './assets/scripts/frontOffice/contact/contact.js',
+        'entrypoint' => true,
+    ],
+    
+    'localisation' => [
+        'path' => './assets/scripts/frontOffice/localisation/localisation.js',
         'entrypoint' => true,
     ],
 ];

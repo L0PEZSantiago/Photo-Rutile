@@ -4,7 +4,8 @@
 {% endblock %}
 
 {% block importmap %}
-	{{ importmap(['app','home','navbar']) }}
+	{{ parent() }}
+	{{ importmap('home') }}
 {% endblock %}
 
 {% block main %}
@@ -96,7 +97,7 @@
 					<p class="card-description text-muted">Artisanat traditionnel.</p>
 				</div>
 			</div>
-		<a href="#" class="btn-primary">Voir tout</a>
+		<a href="#" class="btn-primary">Voir les créations</a>
 		</div>
 	</section>
 

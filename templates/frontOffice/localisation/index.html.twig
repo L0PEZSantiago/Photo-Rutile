@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Localisation
+{% endblock %}
+
+{% block importmap %}
+	{{ parent() }}
+	{{ importmap('localisation') }}
+{% endblock %}
+
+{% block main %}
+	<section class="localisation-section">
+		<div class="container">
+			<div class="localisation-title">
+				<h1>Nous trouver</h1>
+				<p>Venez découvrir l'atelier et les créations directement sur place.</p>
+			</div>
+			<div class="informations-and-map">
+				<div class="localisation-informations">
+                <div class="localisation-information address">
+					<div class="map-icon map">
+						{{ iconsCollection.map|raw }}
+					</div>
+                    <div class="info-content">
+                        <h3>Adresse</h3>
+                        <p>12 Rue des Artisans, 68000 Colmar, France</p>
+                    </div>
+                </div>
+
+                <div class="localisation-information schedule">
+					<div class="clock-icon clock">
+						{{ iconsCollection.clock|raw }}
+					</div>
+                    <div class="info-content">
+                        <h3>Horaires</h3>
+                        <p>Lundi – Vendredi : 9h – 18h
+                            Samedi : 10h – 16h
+                            Dimanche : Fermé</p>
+                    </div>
+                </div>
+
+                <div class="localisation-information contact">
+					<div class="phone-icon phone">
+						{{ iconsCollection.phone|raw }}
+					</div>
+                    <div class="info-content">
+                        <h3>Téléphone</h3>
+                        <p>06 12 34 56 78</p>
+                    </div>
+                </div>
+                
+                <div class="localisation-information contact">
+					<div class="mail-icon email">
+						{{ iconsCollection.mail|raw }}
+					</div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p>contact@photorutile.fr</p>
+                    </div>
+                </div>
+                
+                <a class="localisation-map-link btn-primary" href="https://www.google.com/maps/place/12+Rue+des+Artisans,+68000+Colmar/@48.0786476,7.36031,17z/data=!3m1!4b1!4m6!3m5!1s0x479165e15381bf35:0x5a13239dc1729db1!8m2!3d48.0786476!4d7.36031!16s%2Fg%2F11csnn0gd4?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D">{{ iconsCollection.map|raw }} Voir sur Google Map</a>
+				</div>
+
+				<div class="localisation-map">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.1234567890123!2d2.352083!3d48.856614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701f7a0e4b0f%3A0x4b8c3b3b3b3b3b3b!2sParis!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+
+			</div>
+            </div>
+		</section>
+	{% endblock %}

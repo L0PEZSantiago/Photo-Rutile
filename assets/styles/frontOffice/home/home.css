@@ -55,10 +55,6 @@
         margin-bottom: 2rem;
         text-align: center;
     }
-
-    a {
-        font-weight: 600;
-    }
 }
 
 section h2 {
@@ -93,7 +89,6 @@ section h2 {
 
 /* --- Icône ronde --- */
 .card-icon {
-    background-color: #DAE0D3;
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -101,6 +96,13 @@ section h2 {
     align-items: center;
     justify-content: center;
     margin: 0 auto 24px;
+}
+
+.home-wood-art .card-icon {
+    background-color: #DAE0D3;
+    svg {
+        color: #559C4F;
+    }
 }
 
 /* =============================================
@@ -141,10 +143,6 @@ section h2 {
 .card-icon svg {
     width: 28px;
     height: 28px;
-}
-
-.wood-art-card .card-icon svg, .truck svg {
-    color: #559C4F;
 }
 
  
@@ -251,21 +249,6 @@ section h2 {
     text-align: center;
 }
 
-.map {
-    background-color: #EEE0CF;
-
-    svg {
-        color: #BD690A;
-    }
-}
-
-.phone {
-    background-color: #D7D5EE;
-    
-    svg {
-        color: #2020D5;
-    }
-}
 
 /* --- Responsive --- */
 @media (max-width: 900px) { 

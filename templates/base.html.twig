@@ -8,7 +8,7 @@
         {% endblock %}
 
         {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
+            {% block importmap %}{{ importmap(['app', 'navbar']) }}{% endblock %}
         {% endblock %}
 
         {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
@@ -30,17 +30,12 @@
         <main>
             {% block main %}{% endblock %}
         </main>
-        {% endblock %}
 
         <footer>
             {% block footer %}
-            <div class="container">
-            <p class="footer-title">Photos Rutile</p>
-            <p class="footer-description">Artisanat en bois — Pièces uniques faites main</p>
-            <p class="footer-address">123 Rue de la Photographie, 75001 Paris</p>
-            <p class="footer-copyright">© 2026 Photos Rutile. Tous droits réservés.</p>
-            </div>
+            {% include 'layouts/footer.html.twig' %}
             {% endblock %}
         </footer>
+        {% endblock %}
     </body>
 </html>

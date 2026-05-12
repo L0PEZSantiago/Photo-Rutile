@@ -43,30 +43,7 @@ h2 {
     margin: 0;
 }
 
-.btn-primary {
-    display: inline-block;
-    background-color: var(--accent-color);
-    box-sizing: border-box;
-    color: var(--light-color);
-    padding: 0.7rem 0.2rem;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    min-width: 200px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-    &:hover {
-        opacity: 0.9;
-    }
-}
-
-.container {
-    max-width: 70rem;
-    margin: 0 auto;
-    padding: 0 24px;
-}
 
 section {
     padding: 4rem 0;

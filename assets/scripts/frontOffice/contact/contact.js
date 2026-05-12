@@ -1,0 +1,1 @@
+import '../../../styles/frontOffice/contact/contact.css';
