@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle création{% endblock %}
+
+{% block importmap %} {{ parent() }} {% endblock %}
+
+{% block main %}
+    <h1>Nouvelle création</h1>
+
+    {% include 'backOffice/creation/_form.html.twig' %}
+        <a class="btn-primay" href="{{ path('app.creation.index') }}">back to list</a>
+{% endblock %}

@@ -15,7 +15,7 @@
 				<h1>Contactez-nous</h1>
 				<p>Une question, une commande spéciale ou simplement envie d'en savoir plus ? Écrivez-nous !</p>
 			</div>
-        <form action="https://api.staticforms.dev/submit"method="POST">
+        <form action="https://api.staticforms.dev/submit" method="POST">
             <input type="hidden" name="apiKey" value="sf_dd55a221a7447066e6563c29">
             <input type="text" name="honeypot" style="display:none">
         <div class="form-input-label">
@@ -30,7 +30,7 @@
             <label for="message">Message <span class="required">*</span></label>
             <textarea id="message" name="message" placeholder="Décrivez votre demande..." required></textarea>
         </div>
-        <input type="hidden" name="redirectTo" value="{{ path('app.home') }}">
+        <input type="hidden" name="redirectTo" value="{{ url('app.contact_confirmation') }}">
         <button type="submit">{{ iconsCollection.send|raw }} Envoyer le message</button>
         </form>
         </div>

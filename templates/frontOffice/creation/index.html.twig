@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes des créations
+{% endblock %}
+
+{% block importmap %}
+	{{ parent() }}
+	{{ importmap('creation') }}
+{% endblock %}
+
+{% block main %}
+	<section class="creations-title-section">
+		<div class="container">
+			<div class="section-title">
+				<h1>Tous les articles</h1>
+				<p>Parcourez l'ensemble des créations artisanales en bois de Photo Rutile.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="creations-section">
+		<div class="filters">
+			<button class="filter-button" data-filter="all">Tous</button>
+			<button class="filter-button" data-filter="meuble">Meubles</button>
+			<button class="filter-button" data-filter="décoration">Décoration</button>
+			<button class="filter-button" data-filter="objet">Objets</button>
+		</div>
+		<div class="container">
+			{% for creation in creations %}
+				<div class="creation">
+					<img src="{{ asset('images/creations/' ~ creation.imageFilename) }}" alt="{{ creation.title }}">
+					<div class="creation-info">
+						<div class="creation-name-theme">
+							<h3>{{ creation.title }}</h3>
+							<span>{{ creation.theme.name }}</span>
+						</div>
+						<p>{{ creation.description }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

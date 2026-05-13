@@ -45,4 +45,13 @@ return [
         'path' => './assets/scripts/frontOffice/localisation/localisation.js',
         'entrypoint' => true,
     ],
+
+    'creation' => [
+        'path' => './assets/scripts/frontOffice/creation/index.js',
+        'entrypoint' => true,
+    ],
+    
+    'creation-form' => [
+        'path' => './assets/scripts/backOffice/form/creation-form.js'
+    ]
 ];

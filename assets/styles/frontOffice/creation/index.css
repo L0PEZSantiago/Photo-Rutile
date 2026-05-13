@@ -1,0 +1,148 @@
+/* =============================================
+   Section "Tous les articles" — Photo Rutile
+   ============================================= */
+
+.creations-title-section {
+    background-color: #f5f2ed;
+    padding: 80px 24px 40px;
+    text-align: center;
+}
+
+.section-title h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    color: #2a2118;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    color: #6b5e4e;
+}
+
+/* --- Section créations --- */
+.creations-section {
+    background-color: #f5f2ed;
+    padding: 0 24px 80px;
+}
+
+/* --- Filtres --- */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    background-color: #ffffff;
+    color: #2a2118;
+    border: 1px solid #ddd6cc;
+    border-radius: 999px;
+    padding: 8px 22px;
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-button:hover {
+    border-color: #BB6A0D;
+    color: #BB6A0D;
+}
+
+.filter-button.active {
+    background-color: #BB6A0D;
+    color: #ffffff;
+    border-color: #BB6A0D;
+}
+
+/* --- Grille créations --- */
+.creations-section .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Carte création --- */
+.creation {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.creation:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.creation > img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Infos carte --- */
+.creation-info {
+    padding: 20px;
+}
+
+.creation-name-theme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.creation-name-theme h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a2118;
+    margin: 0;
+}
+
+.creation-name-theme span {
+    background-color: #edf7ec;
+    color: #539B4E;
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-family: 'Georgia', serif;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.creation-info p {
+    font-family: 'Georgia', serif;
+    font-size: 0.88rem;
+    color: #6b5e4e;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .creations-section .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .creations-section .container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h1 {
+        font-size: 2rem;
+    }
+}

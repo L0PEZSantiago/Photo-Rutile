@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une création{% endblock %}
+{% block importmap %}
+{{ parent()}}
+{{ importmap('creation-form')}}
+{% endblock %}
+
+{% block main %}
+    <h1>Modifier une création</h1>
+
+    {{ include('backOffice/creation/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app.creation.index') }}">back to list</a>
+
+    {{ include('backOffice/creation/_delete_form.html.twig') }}
+{% endblock %}

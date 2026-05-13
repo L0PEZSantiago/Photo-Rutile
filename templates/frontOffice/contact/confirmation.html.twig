@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Message envoyé
+{% endblock %}
+
+{% block importmap %}
+	{{ parent() }}
+	{{ importmap('contact') }}
+{% endblock %}
+
+{% block main %}
+	<section class="contact-section contact-section--confirmation">
+		<div class="container">
+			<div class="contact-confirmation-card">
+				<div class="contact-confirmation-icon" aria-hidden="true">
+					{{ iconsCollection.circleCheck|raw }}
+				</div>
+				<h1 class="contact-confirmation-title">Votre message a bien été envoyé</h1>
+				<p class="contact-confirmation-text">Merci pour votre message. Nous l’avons bien reçu et nous vous répondrons dans les meilleurs délais.</p>
+				<div class="contact-confirmation-actions">
+					<a class="btn-primary" href="{{ path('app.home') }}">Retour à l’accueil</a>
+					<a class="contact-confirmation-link-secondary" href="{{ path('app.contact') }}">Envoyer un autre message</a>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

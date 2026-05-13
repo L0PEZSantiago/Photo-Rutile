@@ -20,6 +20,12 @@ class HomeController extends AbstractController
         return $this->render('frontOffice/contact/index.html.twig');
     }
 
+    #[Route('/contact/merci', name: 'app.contact_confirmation')]
+    public function contactConfirmation(): Response
+    {
+        return $this->render('frontOffice/contact/confirmation.html.twig');
+    }
+
     #[Route('/localisation', name: 'app.localisation')]
     public function localisation(): Response
     {
