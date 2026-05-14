@@ -18,26 +18,20 @@
 		</div>
 	</section>
 
-	<section class="creations-section">
-		<div class="filters">
-			<button class="filter-button" data-filter="all">Tous</button>
-			<button class="filter-button" data-filter="meuble">Meubles</button>
-			<button class="filter-button" data-filter="décoration">Décoration</button>
-			<button class="filter-button" data-filter="objet">Objets</button>
+	<section class="creations-section" data-controller="filters">
+		<div class="search-container">
+			{{ iconsCollection.search|raw }}
+			<input type="text" placeholder="Rechercher une création..."  data-action="input->filters#searchByNameWithDebounce">
 		</div>
-		<div class="container">
-			{% for creation in creations %}
-				<div class="creation">
-					<img src="{{ asset('images/creations/' ~ creation.imageFilename) }}" alt="{{ creation.title }}">
-					<div class="creation-info">
-						<div class="creation-name-theme">
-							<h3>{{ creation.title }}</h3>
-							<span>{{ creation.theme.name }}</span>
-						</div>
-						<p>{{ creation.description }}</p>
-					</div>
-				</div>
-			{% endfor %}
+		<div class="filters">
+			<button class="filter-button all active" data-theme="all">Tous</button>
+			<button class="filter-button cuisine" data-theme="cuisine">Cuisine</button>
+			<button class="filter-button decoration" data-theme="decoration">Décoration</button>
+			<button class="filter-button objet" data-theme="objet">Objets</button>
+		</div>
+		<div class="container all-creations">
+			<!-- Creations will be loaded here -->
+            {% include 'frontOffice/creation/_creation_list.html.twig' %}
 		</div>
 	</section>
 {% endblock %}

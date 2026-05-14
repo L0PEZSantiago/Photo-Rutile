@@ -1,0 +1,17 @@
+			{% if creations|length > 0 %}
+                {% for creation in creations %}
+                    <div class="creation">
+                        <img src="{{ asset('images/creations/' ~ creation.imageFilename) }}" alt="{{ creation.title }}">
+                        <div class="creation-info">
+                            <div class="creation-name-theme">
+							<h2>{{ creation.title }}</h2>
+							<span>{{ creation.theme.name }}</span>
+						</div>
+						<p>{{ creation.description }}</p>
+					</div>
+				</div>
+                {% endfor %}
+            {% else %}
+                <p class="no-creations">Aucune création trouvée</p>
+            {% endif %}
+

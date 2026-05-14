@@ -40,4 +40,40 @@ class CreationRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function searchByName(?string $query): array
+    {
+        return $this->search($query, null);
+    }
+
+    public function searchByTheme(?string $theme): array
+    {
+        return $this->search(null, $theme);
+    }
+
+    /**
+     * @return Creation[]
+     */
+    public function search(?string $query, ?string $theme): array
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->orderBy('c.createdAt', 'DESC');
+
+        $theme = $theme !== null ? trim($theme) : '';
+        if ($theme !== '' && strcasecmp($theme, 'all') !== 0) {
+            $qb
+                ->innerJoin('c.theme', 't')
+                ->andWhere('LOWER(t.slug) = LOWER(:themeSlug) OR LOWER(t.name) LIKE LOWER(:themeNameLike)')
+                ->setParameter('themeSlug', $theme)
+                ->setParameter('themeNameLike', '%' . $theme . '%');
+        }
+
+        if ($query !== null && trim($query) !== '') {
+            $qb
+                ->andWhere('LOWER(c.title) LIKE LOWER(:query)')
+                ->setParameter('query', '%' . trim($query) . '%');
+        }
+
+        return $qb->getQuery()->getResult();
+    }
 }

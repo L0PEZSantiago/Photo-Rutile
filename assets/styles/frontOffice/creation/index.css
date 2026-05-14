@@ -1,7 +1,6 @@
 /* =============================================
    Section "Tous les articles" — Photo Rutile
    ============================================= */
-
 .creations-title-section {
     background-color: #f5f2ed;
     padding: 80px 24px 40px;
@@ -9,7 +8,6 @@
 }
 
 .section-title h1 {
-    font-family: 'Georgia', serif;
     font-size: 2.6rem;
     font-weight: 400;
     color: #2a2118;
@@ -17,7 +15,6 @@
 }
 
 .section-title p {
-    font-family: 'Georgia', serif;
     font-size: 0.95rem;
     color: #6b5e4e;
 }
@@ -26,6 +23,7 @@
 .creations-section {
     background-color: #f5f2ed;
     padding: 0 24px 80px;
+    min-height: 45vh;
 }
 
 /* --- Filtres --- */
@@ -38,25 +36,23 @@
 }
 
 .filter-button {
-    background-color: #ffffff;
-    color: #2a2118;
+    background-color: #F7F5F2;
+    color: #7E7167;
     border: 1px solid #ddd6cc;
     border-radius: 999px;
     padding: 8px 22px;
-    font-family: 'Georgia', serif;
     font-size: 0.9rem;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .filter-button:hover {
-    border-color: #BB6A0D;
-    color: #BB6A0D;
+    background-color: #d3d1ce;
 }
 
 .filter-button.active {
     background-color: #BB6A0D;
-    color: #ffffff;
+    color: white;
     border-color: #BB6A0D;
 }
 
@@ -93,6 +89,10 @@
 /* --- Infos carte --- */
 .creation-info {
     padding: 20px;
+    background-color: #F1EDEA;
+    span {
+        background-color: #70A969;
+    }
 }
 
 .creation-name-theme {
@@ -103,10 +103,9 @@
     margin-bottom: 10px;
 }
 
-.creation-name-theme h3 {
-    font-family: 'Georgia', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
+.creation-name-theme h2 {
+    font-size: var(--text-lg);
+    line-height: var(--line-height-xl);
     color: #2a2118;
     margin: 0;
 }
@@ -116,14 +115,12 @@
     color: #539B4E;
     border-radius: 999px;
     padding: 3px 12px;
-    font-family: 'Georgia', serif;
     font-size: 0.78rem;
     white-space: nowrap;
     flex-shrink: 0;
 }
 
 .creation-info p {
-    font-family: 'Georgia', serif;
     font-size: 0.88rem;
     color: #6b5e4e;
     line-height: 1.65;

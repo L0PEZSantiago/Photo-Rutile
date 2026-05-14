@@ -49,3 +49,28 @@
 .footer-container {
     text-align: center;
 }
+
+/* --- Search Container --- */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #cac4bb;
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 250px;
+    max-width: 450px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    
+    input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        width: 100%;
+    }
+
+    svg {
+        color: #7E7167;
+    }
+}
