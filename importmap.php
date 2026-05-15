@@ -52,6 +52,12 @@ return [
     ],
     
     'creation-form' => [
-        'path' => './assets/scripts/backOffice/form/creation-form.js'
-    ]
+        'path' => './assets/scripts/backOffice/form/creation-form.js',
+        'entrypoint' => true,
+    ],
+
+    'login' => [
+        'path' => './assets/scripts/backOffice/login/login.js',
+        'entrypoint' => true,
+    ],
 ];

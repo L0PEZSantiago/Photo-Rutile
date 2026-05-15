@@ -1,15 +1,83 @@
-<nav class="navbar">
-    <div class="container-navbar">
-    <div class="logo-navbar">
-        <img src="{{ asset('images/logo/photo-rutile.webp') }}" alt="PhotoRutile">
-        <a href="{{ path('app.home') }}">PhotoRutile</a>
-    </div>
-    <ul>
-        <li><a href="{{ path('app.home') }}">Accueil</a></li>
-        <li><a href="{{ path('app.creation.index') }}">Créations</a></li>
-        <li><a href="#about">A propos</a></li>
-        <li><a href="{{ path('app.contact') }}">Contact</a></li>
-        <li><a href="{{ path('app.localisation') }}">Localisation</a></li>
-    </ul>
-    </div>
-</nav>
+<div class="navbar-wrapper" data-controller="burger">
+	<nav class="navbar">
+		<div class="container-navbar">
+			<div class="logo-navbar">
+				<img src="{{ asset('images/logo/photo-rutile.webp') }}" alt="Photo Rutile">
+				<a href="{{ path('app.home') }}">PhotoRutile</a>
+			</div>
+			<ul class="navbar-links">
+				<li>
+					<a href="{{ path('app.home') }}">Accueil</a>
+				</li>
+				<li>
+					<a href="{{ path('app.creation.index') }}">Créations</a>
+				</li>
+				<li>
+					<a href="{{ path('app.contact') }}">Contact</a>
+				</li>
+				<li>
+					<a href="{{ path('app.localisation') }}">Localisation</a>
+				</li>
+				{% if is_granted('ROLE_ADMIN') %}
+					<li>
+						<a href="{{ path('app.logout') }}">Déconnexion</a>
+					</li>
+				{% endif %}
+			</ul>
+			<button
+				type="button"
+				class="header-menu-icon"
+				data-burger-target="toggle"
+				data-action="click->burger#toggle"
+				aria-label="Ouvrir le menu"
+				aria-expanded="false"
+				aria-controls="mobile-menu"
+			>
+				{{ iconsCollection.burger|raw }}
+			</button>
+		</div>
+	</nav>
+
+	<div
+		id="mobile-menu"
+		class="header-menu-mobile-overlay"
+		data-burger-target="overlay"
+		aria-hidden="true"
+	>
+		<div class="header-menu-mobile-header">
+			<img
+				class="header-menu-mobile-logo"
+				src="{{ asset('images/logo/photo-rutile.webp') }}"
+				alt="Photo Rutile"
+			>
+			<span class="header-menu-mobile-brand">PhotoRutile</span>
+			<button
+				type="button"
+				class="header-menu-mobile-close"
+				data-action="click->burger#close"
+				aria-label="Fermer le menu"
+			>
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<ul class="header-menu-mobile">
+			<li>
+				<a href="{{ path('app.home') }}" data-action="click->burger#close">Accueil</a>
+			</li>
+			<li>
+				<a href="{{ path('app.creation.index') }}" data-action="click->burger#close">Créations</a>
+			</li>
+			<li>
+				<a href="{{ path('app.contact') }}" data-action="click->burger#close">Contact</a>
+			</li>
+			<li>
+				<a href="{{ path('app.localisation') }}" data-action="click->burger#close">Localisation</a>
+			</li>
+			{% if is_granted('ROLE_ADMIN') %}
+				<li>
+					<a href="{{ path('app.logout') }}" data-action="click->burger#close">Déconnexion</a>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+</div>

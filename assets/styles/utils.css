@@ -41,7 +41,7 @@
 }
 
 .container, .footer-container {
-    max-width: 70rem;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 0 24px;
 }
