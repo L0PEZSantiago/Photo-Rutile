@@ -16,7 +16,10 @@
       {% if is_granted('ROLE_ADMIN') %}
         <div class="creation-actions">
           <a href="{{ path('app.creation.edit', {'id': creation.id}) }}" class="creation-edit creation-action">{{ iconsCollection.pen|raw }} <span>Modifier</span></a>
-          <a href="{{ path('app.creation.delete', {'id': creation.id}) }}" class="creation-delete creation-action">{{ iconsCollection.trash|raw }}</a>
+          <form method="post" action="{{ path('app.creation.delete', {'id': creation.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette création ?')">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ creation.id) }}">
+            <button type="submit" class="creation-delete creation-action">{{ iconsCollection.trash|raw }}</button>
+          </form>
         </div>
       {% endif %}
     </div>

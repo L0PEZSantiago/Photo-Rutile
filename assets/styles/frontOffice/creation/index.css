@@ -170,13 +170,19 @@ flex-direction: column;
         }
     }
 
+    form {
+        display: contents;
+    }
+
     .creation-delete {
         color: rgb(255, 255, 255);
         background-color: #d33;
         border: 1px solid #d33;
         border-radius: 6px;
         padding: 8px 12px;
-        width: 5%;
+        cursor: pointer;
+        font: inherit;
+        overflow: visible;
 
         &:hover {
             background-color: #b3261e;
