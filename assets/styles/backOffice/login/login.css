@@ -1,0 +1,168 @@
+/* =============================================
+   Page de connexion admin — Photo Rutile
+   ============================================= */
+
+.login-section {
+    background-color: var(--bg-grey);
+    padding: 120px 24px 64px;
+    display: flex;
+    align-items: center;
+}
+
+.login-card {
+    background-color: var(--bg-grey-darker);
+    border-radius: 16px;
+    padding: 48px 40px;
+    max-width: 440px;
+    margin: 0 auto;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 10%, transparent);
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--primary-color) 8%, transparent);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.login-header h1 {
+    font-family: var(--font-logo);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0 0 10px;
+    line-height: 1.25;
+}
+
+.login-header p {
+    font-family: var(--font-family);
+    font-size: 0.92rem;
+    color: color-mix(in srgb, var(--primary-color) 55%, transparent);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.login-alert {
+    background-color: color-mix(in srgb, #c0392b 12%, var(--light-color));
+    border: 1px solid color-mix(in srgb, #c0392b 35%, transparent);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+    color: #922b21;
+    text-align: center;
+}
+
+.login-form .form-input-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.login-form .form-input-label label {
+    font-family: var(--font-logo);
+    font-size: 0.92rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.login-form .form-input-label input {
+    background-color: var(--light-color);
+    border: 1px solid color-mix(in srgb, var(--primary-color) 18%, var(--light-color));
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    font-family: var(--font-family);
+    color: var(--primary-color);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.login-form .form-input-label input::placeholder {
+    color: #b0a090;
+}
+
+.login-form .form-input-label input:focus {
+    border-color: var(--accent-color);
+}
+
+.login-submit {
+    width: 100%;
+    margin-top: 8px;
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 4px 6px color-mix(in srgb, var(--accent-color) 30%, transparent);
+}
+
+.login-submit:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 88%, #000);
+}
+
+.login-logged-in {
+    text-align: center;
+}
+
+.login-logged-in p {
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    margin: 0 0 24px;
+    line-height: 1.5;
+}
+
+.login-logged-in strong {
+    color: var(--accent-color);
+}
+
+.login-logged-in .btn-primary {
+    width: 100%;
+    min-width: unset;
+}
+
+.login-back {
+    text-align: center;
+    margin: 28px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid color-mix(in srgb, var(--primary-color) 12%, transparent);
+}
+
+.login-back a {
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+.login-back a:hover {
+    color: color-mix(in srgb, var(--accent-color) 85%, #000);
+}
+
+@media (max-width: 768px) {
+    .login-section {
+        padding: 100px 16px 48px;
+    }
+
+    .login-card {
+        padding: 32px 24px;
+    }
+
+    .login-header h1 {
+        font-size: 1.5rem;
+    }
+}

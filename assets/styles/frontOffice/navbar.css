@@ -1,0 +1,184 @@
+nav {
+    background-color: #2e251fe3;
+    padding: 0.4rem 0rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.container-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 75rem;
+    padding: 0.2rem 2rem;
+    margin: auto;
+
+    .logo-navbar {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        a {
+            font-family: var(--font-logo);
+            font-size: 1.2rem;
+        }
+    }
+
+    img {
+        width: 40px;
+        border-radius: 50%;
+    }
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin-left: 1rem;
+    }
+
+    a {
+        opacity: 0.8;
+        transition: opacity 0.3s;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+/* ── Bouton burger (visible uniquement sur mobile) ───────────── */
+.header-menu-icon {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--light-color);
+    padding: 8px;
+    align-items: center;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.header-menu-icon svg {
+    display: block;
+}
+
+/* ── Overlay plein écran ─────────────────────────────────────── */
+.header-menu-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background-color: #2b1d16;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0s linear 0.35s;
+}
+
+.header-menu-mobile-overlay.is-open {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0s linear 0s;
+}
+
+/* ── Header de l'overlay (logo + croix) ─────────────────────── */
+.header-menu-mobile-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+.header-menu-mobile-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.header-menu-mobile-brand {
+    flex: 1;
+    color: #ffffff;
+    font-family: var(--font-logo);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.header-menu-mobile-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: opacity 0.15s;
+}
+
+.header-menu-mobile-close:hover {
+    opacity: 0.75;
+}
+
+/* ── Liste des liens ─────────────────────────────────────────── */
+.header-menu-mobile {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.header-menu-mobile li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-menu-mobile li a {
+    display: block;
+    padding: 18px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-family);
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    transition: color 0.15s;
+}
+
+.header-menu-mobile li a:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .container-navbar {
+        padding: 0 1rem;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .header-menu-icon {
+        display: flex;
+    }
+}

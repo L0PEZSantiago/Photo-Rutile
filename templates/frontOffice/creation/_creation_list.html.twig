@@ -1,0 +1,26 @@
+{% if (creations|length) > 0 %}
+  {% for creation in creations %}
+    <div class="creation">
+      <img src="{{ asset('images/creations/' ~ creation.imageFilename) }}" alt="{{ creation.title }}" />
+      <div class="creation-info">
+        <div class="creation-name-theme">
+          <h2>{{ creation.title }}</h2>
+          <span>{{ creation.theme.name }}</span>
+        </div>
+        <p>
+          {{ creation.description }}
+        </p>
+      </div>
+      {% if is_granted('ROLE_ADMIN') %}
+        <div class="creation-actions">
+          <a href="{{ path('app.creation.edit', {'id': creation.id}) }}" class="creation-edit creation-action">{{ iconsCollection.pen|raw }} <span>Modifier</span></a>
+          <a href="{{ path('app.creation.delete', {'id': creation.id}) }}" class="creation-delete creation-action">{{ iconsCollection.trash|raw }}</a>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% else %}
+  <p class="no-creations">
+    Aucune création trouvée
+  </p>
+{% endif %}

@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion — Espace administration{% endblock %}
+
+{% block importmap %}
+	{{ parent() }}
+	{{ importmap('login') }}
+{% endblock %}
+
+{% block main %}
+	<section class="login-section">
+		<div class="container">
+			<div class="login-card">
+				<div class="login-header">
+					<img
+						class="login-logo"
+						src="{{ asset('images/logo/photo-rutile.webp') }}"
+						alt="Photo Rutile"
+					>
+					<h1>Espace administration</h1>
+					<p>Connectez-vous pour gérer les créations du site.</p>
+				</div>
+
+				{% if error %}
+					<div class="login-alert" role="alert">
+						{{ error.messageKey|trans(error.messageData, 'security') }}
+					</div>
+				{% endif %}
+
+				{% if app.user %}
+					<div class="login-logged-in">
+						<p>Vous êtes connecté en tant que <strong>{{ app.user.userIdentifier }}</strong>.</p>
+						<a class="btn-primary" href="{{ path('app.logout') }}">Se déconnecter</a>
+					</div>
+				{% else %}
+					<form class="login-form" method="post">
+						<div class="form-input-label">
+							<label for="username">Nom d'utilisateur</label>
+							<input
+								type="text"
+								value="{{ last_username }}"
+								name="_username"
+								id="username"
+								autocomplete="username"
+								required
+								autofocus
+								placeholder="Votre identifiant"
+							>
+						</div>
+						<div class="form-input-label">
+							<label for="password">Mot de passe</label>
+							<input
+								type="password"
+								name="_password"
+								id="password"
+								autocomplete="current-password"
+								required
+								placeholder="Votre mot de passe"
+							>
+						</div>
+						<input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+
+						<button class="login-submit" type="submit">Connexion</button>
+					</form>
+				{% endif %}
+
+				<p class="login-back">
+					<a href="{{ path('app.home') }}">← Retour au site</a>
+				</p>
+			</div>
+		</div>
+	</section>
+{% endblock %}

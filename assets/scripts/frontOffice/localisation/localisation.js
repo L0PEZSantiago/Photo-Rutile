@@ -1,0 +1,1 @@
+import '../../../styles/frontOffice/localisation/localisation.css';

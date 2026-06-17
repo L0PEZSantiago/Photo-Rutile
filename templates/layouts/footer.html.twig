@@ -1,0 +1,6 @@
+<div class="footer-container">
+	<p class="footer-title">PhotoRutile</p>
+	<p class="footer-description">Artisanat en bois — Pièces uniques faites main</p>
+	<p class="footer-address">123 Rue de la Photographie, 75001 Paris</p>
+	<p class="footer-copyright">© 2026 Photos Rutile. Tous droits réservés {% if not is_granted('ROLE_ADMIN') %}| <a href="{{ path('app.login') }}">Espace Administration</a>{% endif %}</p>
+</div>

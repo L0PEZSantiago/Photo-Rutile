@@ -1,0 +1,210 @@
+/* =============================================
+   Section "Tous les articles" — Photo Rutile
+   ============================================= */
+.creations-title-section {
+    background-color: #f5f2ed;
+    padding: 80px 24px 40px;
+    text-align: center;
+}
+
+.section-title h1 {
+    font-size: 2.6rem;
+    font-weight: 400;
+    color: #2a2118;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    font-size: 0.95rem;
+    color: #6b5e4e;
+}
+
+/* --- Section créations --- */
+.creations-section {
+    background-color: #f5f2ed;
+    padding: 0 24px 80px;
+    min-height: 45vh;
+}
+
+/* --- Filtres --- */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    background-color: #F7F5F2;
+    color: #7E7167;
+    border: 1px solid #ddd6cc;
+    border-radius: 999px;
+    padding: 8px 22px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-button:hover {
+    background-color: #d3d1ce;
+}
+
+.filter-button.active {
+    background-color: #BB6A0D;
+    color: white;
+    border-color: #BB6A0D;
+}
+
+.filters-and-add {
+display: flex;
+flex-direction: column;
+
+    .add-creation-btn {
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+}
+
+/* --- Grille créations --- */
+.creations-section .all-creations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Carte création --- */
+.creation {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.creation:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.creation > img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Infos carte --- */
+.creation-info {
+    padding: 20px;
+    background-color: #F1EDEA;
+    span {
+        background-color: #70A969;
+    }
+}
+
+.creation-name-theme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.creation-name-theme h2 {
+    font-size: var(--text-lg);
+    line-height: var(--line-height-xl);
+    color: #2a2118;
+    margin: 0;
+}
+
+.creation-name-theme span {
+    background-color: #d6e0d5;
+    color: #32832c;
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.creation-info p {
+    font-size: 0.88rem;
+    color: #6b5e4e;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.creation-actions {
+    display: flex;
+    background-color: #F1EDEA;
+    justify-content: flex-end;
+    padding: 12px 20px;
+    gap: 15px;
+
+    .creation-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .creation-edit {
+        width: 95%;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 6px;
+        padding: 8px 12px;
+        text-align: center;
+
+        &:hover {
+            color: white;
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+    }
+
+    .creation-delete {
+        color: rgb(255, 255, 255);
+        background-color: #d33;
+        border: 1px solid #d33;
+        border-radius: 6px;
+        padding: 8px 12px;
+        width: 5%;
+
+        &:hover {
+            background-color: #b3261e;
+            border-color: #b3261e;
+        }
+    }
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .creations-section .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .creations-section .container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h1 {
+        font-size: 2rem;
+    }
+
+    .add-creation-btn {
+        margin: 0 auto;
+    }
+    
+}

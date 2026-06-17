@@ -25,4 +25,39 @@ return [
     '@hotwired/turbo' => [
         'version' => '8.0.23',
     ],
+
+    'home' => [
+        'path' => './assets/scripts/frontOffice/home/home.js',
+        'entrypoint' => true,
+    ],
+
+    'navbar' => [
+        'path' => './assets/scripts/frontOffice/navbar.js',
+        'entrypoint' => true,
+    ],
+    
+    'contact' => [
+        'path' => './assets/scripts/frontOffice/contact/contact.js',
+        'entrypoint' => true,
+    ],
+    
+    'localisation' => [
+        'path' => './assets/scripts/frontOffice/localisation/localisation.js',
+        'entrypoint' => true,
+    ],
+
+    'creation' => [
+        'path' => './assets/scripts/frontOffice/creation/index.js',
+        'entrypoint' => true,
+    ],
+    
+    'creation-form' => [
+        'path' => './assets/scripts/backOffice/form/creation-form.js',
+        'entrypoint' => true,
+    ],
+
+    'login' => [
+        'path' => './assets/scripts/backOffice/login/login.js',
+        'entrypoint' => true,
+    ],
 ];

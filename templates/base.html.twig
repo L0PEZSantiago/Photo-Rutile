@@ -1,3 +1,4 @@
+-- Active: 1746749148204@@127.0.0.1@3306
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +9,7 @@
         {% endblock %}
 
         {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
+            {% block importmap %}{{ importmap(['app', 'navbar']) }}{% endblock %}
         {% endblock %}
 
         {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
@@ -17,8 +18,32 @@
         <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
         <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
         {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body data-turbo="false">
+        {% block body %}
+        <header>
+         {% block header %}
+         {% include 'layouts/navbar.html.twig' %}
+         {% endblock %}
+
+         {% for flashMessage in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ flashMessage }}
+            </div>
+         {% endfor %}
+        </header>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer>
+            {% block footer %}
+            {% include 'layouts/footer.html.twig' %}
+            {% endblock %}
+        </footer>
+        {% endblock %}
     </body>
 </html>
