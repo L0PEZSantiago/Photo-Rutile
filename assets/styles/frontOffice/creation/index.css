@@ -77,6 +77,8 @@ flex-direction: column;
 
 /* --- Carte création --- */
 .creation {
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     border-radius: 12px;
     overflow: hidden;
@@ -98,6 +100,7 @@ flex-direction: column;
 
 /* --- Infos carte --- */
 .creation-info {
+    flex: 1;
     padding: 20px;
     background-color: #F1EDEA;
     span {

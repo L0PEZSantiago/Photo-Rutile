@@ -26,4 +26,5 @@
     <div class="creation-form-actions">
         <button class="btn-primary creation-form-submit" type="submit">{{ button_label|default('Enregistrer') }}</button>
     </div>
+{{ form_widget(form._token) }}
 {{ form_end(form, {'render_rest': false}) }}

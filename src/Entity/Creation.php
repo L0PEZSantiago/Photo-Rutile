@@ -42,7 +42,7 @@ class Creation
     private ?string $imageFilename = null;
 
     #[ORM\Column]
-    private bool $isPublished = false;
+    private bool $isPublished = true;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;

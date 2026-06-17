@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/creations')]
 final class CreationController extends AbstractController
@@ -17,20 +18,21 @@ final class CreationController extends AbstractController
     #[Route(name: 'app.creation.index', methods: ['GET'])]
     public function index(CreationRepository $creationRepository): Response
     {
-        $creations = $creationRepository->findAllPublished();
+        $creations = $creationRepository->findAll();
         return $this->render('frontOffice/creation/index.html.twig', [
             'creations' => $creations,
         ]);
     }
 
     #[Route('/nouvelle-creation', name: 'app.creation.new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $creation = new Creation();
         $form = $this->createForm(CreationType::class, $creation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $creation->setSlug(strtolower($slugger->slug($creation->getTitle())));
             $entityManager->persist($creation);
             $entityManager->flush();
 
@@ -52,12 +54,13 @@ final class CreationController extends AbstractController
     }
 
     #[Route('/{id}/modifier', name: 'app.creation.edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Creation $creation, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Creation $creation, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(CreationType::class, $creation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $creation->setSlug(strtolower($slugger->slug($creation->getTitle())));
             $entityManager->flush();
 
             return $this->redirectToRoute('app.creation.index', [], Response::HTTP_SEE_OTHER);
