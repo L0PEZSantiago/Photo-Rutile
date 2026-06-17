@@ -58,6 +58,9 @@ class Creation
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $is_highlighted = false;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -180,6 +183,18 @@ class Creation
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function isHighlighted(): ?bool
+    {
+        return $this->is_highlighted;
+    }
+
+    public function setIsHighlighted(?bool $is_highlighted): static
+    {
+        $this->is_highlighted = $is_highlighted;
 
         return $this;
     }

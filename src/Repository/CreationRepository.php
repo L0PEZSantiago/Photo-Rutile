@@ -41,6 +41,16 @@ class CreationRepository extends ServiceEntityRepository
 //        ;
 //    }
 
+    public function findAllPublished(): array
+    {
+        return $this->findBy(['isPublished' => true], ['createdAt' => 'DESC']);
+    }
+
+    public function findHighlightedCreations(): array
+    {
+        return $this->findBy(['is_highlighted' => true], ['createdAt' => 'DESC'], 6);
+    }
+
     public function searchByName(?string $query): array
     {
         return $this->search($query, null);

@@ -61,7 +61,17 @@
 			</div>
 
 			<div class="our-creations-cards">
+
+			{% for item in highlightedCreations %}
 				<div class="our-creations-card">
+					<div class="card-image">
+      <img src="{{ asset('images/creations/' ~ item.imageFilename) }}" alt="{{ item.title }}" />
+					</div>
+					<h3>{{ item.title }}</h3>
+					<p class="card-description text-muted">{{ item.description }}</p>
+				</div>
+			{% endfor %}
+				{# <div class="our-creations-card">
 					<div class="card-image">
 						<img src="https://picsum.photos/600/400?random=1" alt="Planche à découper">
 					</div>
@@ -95,7 +105,7 @@
 					</div>
 					<h3>Porte-clefs</h3>
 					<p class="card-description text-muted">Artisanat traditionnel.</p>
-				</div>
+				</div> #}
 			</div>
 		<a href={{ path('app.creation.index') }} class="btn-primary">Voir les créations</a>
 		</div>

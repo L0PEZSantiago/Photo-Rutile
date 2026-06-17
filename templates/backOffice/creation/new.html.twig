@@ -2,11 +2,21 @@
 
 {% block title %}Nouvelle création{% endblock %}
 
-{% block importmap %} {{ parent() }} {% endblock %}
+{% block importmap %}
+    {{ parent() }}
+    {{ importmap('creation-form') }}
+{% endblock %}
 
 {% block main %}
-    <h1>Nouvelle création</h1>
+    <section class="creation-form-page">
+        <div class="creation-form-shell">
+            <div class="creation-form-heading">
+                <h1>Nouvelle création</h1>
+            </div>
 
-    {% include 'backOffice/creation/_form.html.twig' %}
-        <a class="btn-primay" href="{{ path('app.creation.index') }}">back to list</a>
+            {% include 'backOffice/creation/_form.html.twig' %}
+
+            <a class="creation-form-back" href="{{ path('app.creation.index') }}">Retour aux créations</a>
+        </div>
+    </section>
 {% endblock %}

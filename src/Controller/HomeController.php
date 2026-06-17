@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CreationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -9,9 +10,12 @@ use Symfony\Component\Routing\Attribute\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app.home')]
-    public function index(): Response
+    public function index(CreationRepository $cr): Response
     {
-        return $this->render('frontOffice/home/index.html.twig');
+        $highlightedCreations = $cr->findHighlightedCreations();
+        return $this->render('frontOffice/home/index.html.twig', [
+            'highlightedCreations' => $highlightedCreations,
+        ]);
     }
     
     #[Route('/contact', name: 'app.contact')]

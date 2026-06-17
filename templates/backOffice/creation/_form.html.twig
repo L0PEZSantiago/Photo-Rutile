@@ -1,4 +1,29 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn-primary" type="submit">{{ button_label|default('Enregistrer') }}</button>
-{{ form_end(form) }}
+{{ form_start(form, {'attr': {'class': 'creation-form'}}) }}
+<div class="creation-form-field">
+    {{ form_row(form.title) }}
+</div>
+<div class="creation-form-field">
+    {{ form_row(form.description) }}
+</div>
+
+<div class="theme-material-container">
+<div class="creation-form-field">
+    {{ form_row(form.theme) }}
+</div>
+<div class="creation-form-field">
+    {{ form_row(form.material) }}
+</div>
+</div>
+
+<div class="creation-form-field">
+    {{ form_row(form.imageFile) }}
+</div>
+
+{{ form_row(form.isHighlighted) }}
+
+
+    
+    <div class="creation-form-actions">
+        <button class="btn-primary creation-form-submit" type="submit">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+{{ form_end(form, {'render_rest': false}) }}

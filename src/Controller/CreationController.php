@@ -17,7 +17,7 @@ final class CreationController extends AbstractController
     #[Route(name: 'app.creation.index', methods: ['GET'])]
     public function index(CreationRepository $creationRepository): Response
     {
-        $creations = $creationRepository->findAll();
+        $creations = $creationRepository->findAllPublished();
         return $this->render('frontOffice/creation/index.html.twig', [
             'creations' => $creations,
         ]);
