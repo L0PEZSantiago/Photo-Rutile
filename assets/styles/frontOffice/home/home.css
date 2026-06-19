@@ -207,7 +207,6 @@ section h2 {
 /* --- Image --- */
 .our-creations-card .card-image {
     width: 100%;
-    aspect-ratio: 4 / 3;
     overflow: hidden;
 }
 
