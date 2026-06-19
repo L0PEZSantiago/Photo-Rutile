@@ -8,17 +8,15 @@
 {% endblock %}
 
 {% block main %}
-    <section class="creation-form-page">
-        <div class="creation-form-shell">
-            <div class="creation-form-heading">
+    <section class="theme-form-page">
+        <div class="theme-form-shell">
+            <div class="theme-form-heading">
                 <h1>Modifier un thème</h1>
             </div>
 
-        
             {{ include('backOffice/theme/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-            <a class="creation-form-back" href="{{ path('app.theme.index') }}">Retour aux thèmes</a>
-
+            <a class="theme-form-back" href="{{ path('app.theme.index') }}">← Retour aux thèmes</a>
         </div>
     </section>
 {% endblock %}

@@ -26,9 +26,9 @@
 		<div class="filters-and-add container">
 		<div class="filters">
 			<button class="filter-button all active" data-theme="all">Tous</button>
-			<button class="filter-button cuisine" data-theme="cuisine">Cuisine</button>
-			<button class="filter-button decoration" data-theme="decoration">Décoration</button>
-			<button class="filter-button noel" data-theme="noel">Noël</button>
+			{% for theme in themes %}
+				<button class="filter-button {{ theme.slug }}" data-theme="{{ theme.slug }}">{{ theme.name }}</button>
+			{% endfor %}
 		</div>
 
         {% if is_granted('ROLE_ADMIN') %}

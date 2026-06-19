@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Creation;
 use App\Form\CreationType;
 use App\Repository\CreationRepository;
+use App\Repository\ThemeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,11 +17,13 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 final class CreationController extends AbstractController
 {
     #[Route(name: 'app.creation.index', methods: ['GET'])]
-    public function index(CreationRepository $creationRepository): Response
+    public function index(CreationRepository $creationRepository, ThemeRepository $themeRepository): Response
     {
         $creations = $creationRepository->findAll();
+        $themes = $themeRepository->findAll();
         return $this->render('frontOffice/creation/index.html.twig', [
             'creations' => $creations,
+            'themes' => $themes,
         ]);
     }
 

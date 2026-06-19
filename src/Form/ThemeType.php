@@ -19,6 +19,9 @@ class ThemeType extends AbstractType
             ->add('isActive', CheckboxType::class, [
                 'label' => 'Actif',
                 'required' => false,
+                'label_attr' => [
+                    'class' => 'form-check-label',
+                ],
             ])
         ;
     }

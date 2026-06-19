@@ -1,16 +1,205 @@
-.row {
+/* =============================================
+   Admin — Liste des thèmes
+   ============================================= */
+
+.theme-page {
+    min-height: 70vh;
+    padding: 100px 24px 48px;
+    background:
+        linear-gradient(rgba(247, 245, 242, 0.88), rgba(247, 245, 242, 0.96)),
+        var(--bg-grey);
+}
+
+.theme-shell {
+    width: min(100%, 680px);
+    margin: 0 auto;
+}
+
+.theme-page-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.theme-page-header h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+.theme-page-header .btn-primary {
+    min-width: unset;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--light-color);
+    text-decoration: none;
+}
+
+.theme-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0d8cf;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fffdfa;
+    box-shadow: 0 4px 20px rgba(46, 37, 31, 0.08);
+}
+
+.theme-list-empty {
+    padding: 48px 24px;
+    text-align: center;
+    color: #a09080;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #ede8e2;
+    transition: background-color 0.15s ease;
+}
+
+.theme-row:last-child {
+    border-bottom: none;
+}
+
+.theme-row:hover {
+    background-color: #faf7f4;
 }
 
 .theme-infos {
     display: flex;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.theme-name {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.theme-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.theme-badge--active {
+    background-color: #e6f4ea;
+    color: #2d7a3f;
+}
+
+.theme-badge--inactive {
+    background-color: #f5f0ec;
+    color: #9a8070;
 }
 
 .admin-actions {
     display: flex;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.admin-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: #f1edea;
+    border: 1px solid #e0d8cf;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-actions a svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.admin-actions a:hover {
+    background-color: #e8e0d8;
+    border-color: #d5c8bc;
+    color: var(--primary-color);
+}
+
+.admin-actions form {
+    margin: 0;
+}
+
+.admin-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 10px;
+    border-radius: 6px;
+    border: 1px solid #f0c8c8;
+    background-color: #fff5f5;
+    color: #9f1d1d;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-actions .btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.admin-actions .btn:hover {
+    background-color: #fde8e8;
+    border-color: #e0a0a0;
+}
+
+@media (max-width: 480px) {
+    .theme-page {
+        padding: 80px 16px 32px;
+    }
+
+    .theme-page-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .theme-row {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 16px;
+    }
+
+    .theme-infos {
+        width: 100%;
+    }
+
+    .admin-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }

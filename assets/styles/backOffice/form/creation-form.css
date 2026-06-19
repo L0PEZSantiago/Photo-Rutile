@@ -1,6 +1,6 @@
 .creation-form-page {
     min-height: 70vh;
-    padding: 48px 24px;
+    padding: 100px 24px 48px;
     background:
         linear-gradient(rgba(247, 245, 242, 0.88), rgba(247, 245, 242, 0.96)),
         var(--bg-grey);
@@ -200,6 +200,10 @@
 }
 
 @media (max-width: 640px) {
+
+    .creation-form-page {
+        padding-top: 80px;
+    }
 
     .creation-form-heading h1 {
         font-size: 1.15rem;

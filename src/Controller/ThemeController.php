@@ -41,7 +41,7 @@ final class ThemeController extends AbstractController
             $em->persist($theme);
             $em->flush();
             $this->addFlash('success', 'Le thème a bien été ajouté.');
-            return $this->redirectToRoute('app_theme_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app.theme.index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('backOffice/theme/new.html.twig', [

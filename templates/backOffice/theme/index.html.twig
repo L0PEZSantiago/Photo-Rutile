@@ -5,26 +5,36 @@
     {{ importmap('theme') }}
 {% endblock %}
 
-{% block title %}Thèmes
-{% endblock %}
+{% block title %}Thèmes{% endblock %}
 
 {% block main %}
-	<h1>Thèmes</h1>
+    <section class="theme-page">
+        <div class="theme-shell">
+            <div class="theme-page-header">
+                <h1>Thèmes</h1>
+                <a class="btn-primary" href="{{ path('app.theme.new') }}">+ Nouveau thème</a>
+            </div>
 
-	<div class="container">
-		{% for theme in themes %}
-			<div class="row">
-				<div class="theme-infos">
-					<p>{{ theme.name }}</p>
-					<p>{{ theme.isActive ? 'Actif' : 'Inactif' }}</p>
-				</div>
-				<div class="admin-actions">
-					<a href="{{ path('app.theme.edit', {'id': theme.id}) }}">{{ iconsCollection.pen|raw }}Modifier</a>
-					{{ include('backOffice/theme/_delete_form.html.twig', {'theme': theme}) }}
-				</div>
-			</div>
-		{% endfor %}
-	</div>
-
-	<a href="{{ path('app.theme.new') }}">Créer un nouveau thème</a>
+            <div class="theme-list">
+                {% if themes is empty %}
+                    <p class="theme-list-empty">Aucun thème créé pour l'instant.</p>
+                {% else %}
+                    {% for theme in themes %}
+                        <div class="theme-row">
+                            <div class="theme-infos">
+                                <span class="theme-name">{{ theme.name }}</span>
+                                <span class="theme-badge {{ theme.isActive ? 'theme-badge--active' : 'theme-badge--inactive' }}">
+                                    {{ theme.isActive ? 'Actif' : 'Inactif' }}
+                                </span>
+                            </div>
+                            <div class="admin-actions">
+                                <a href="{{ path('app.theme.edit', {'id': theme.id}) }}">{{ iconsCollection.pen|raw }} Modifier</a>
+                                {{ include('backOffice/theme/_delete_form.html.twig', {'theme': theme}) }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
 {% endblock %}
