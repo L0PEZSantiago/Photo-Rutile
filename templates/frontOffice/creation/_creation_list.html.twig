@@ -2,7 +2,9 @@
   {% for creation in creations %}
     <div class="creation">
       {% if creation.imageFilename %}
-        <img src="{{ asset('images/creations/' ~ creation.imageFilename) }}" alt="{{ creation.title }}" />
+        <img src="{{ asset('images/creations/' ~ creation.imageFilename) }}" alt="{{ creation.title }}"
+             data-controller="image-modal"
+             data-action="click->image-modal#open" />
       {% endif %}
       <div class="creation-info">
         <div class="creation-name-theme">
