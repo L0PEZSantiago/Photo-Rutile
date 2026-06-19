@@ -92,7 +92,7 @@ flex-direction: column;
 }
 
 .creation > img {    
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
 }
