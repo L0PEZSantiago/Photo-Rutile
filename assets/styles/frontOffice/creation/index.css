@@ -66,6 +66,7 @@ flex-direction: column;
 }
 
     .btn-admin {
+        min-width: 0;
         margin-bottom: 2rem;
     }
 }
