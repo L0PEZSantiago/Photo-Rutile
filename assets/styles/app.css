@@ -51,6 +51,53 @@ section {
     padding: 4rem 0;
 }
 
+/* --- Flash messages --- */
+.flash-container {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: min(90vw, 480px);
+    pointer-events: none;
+}
+
+.flash {
+    padding: 14px 20px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border-left: 4px solid;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    animation: flash-in 0.3s ease;
+}
+
+.flash--success {
+    background-color: #edf7ed;
+    border-color: var(--secondary-color);
+    color: #1e4d1b;
+}
+
+.flash--error {
+    background-color: #fdecea;
+    border-color: #d33;
+    color: #7a1a1a;
+}
+
+.flash--warning {
+    background-color: #fff8e1;
+    border-color: var(--accent-color);
+    color: #5c3d00;
+}
+
+@keyframes flash-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 footer {
     background-color: var(--primary-color);
     padding: 2rem 0;

@@ -36,6 +36,7 @@ final class CreationController extends AbstractController
             $entityManager->persist($creation);
             $entityManager->flush();
 
+            $this->addFlash('success', 'La création a bien été ajoutée.');
             return $this->redirectToRoute('app.creation.index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -63,6 +64,7 @@ final class CreationController extends AbstractController
             $creation->setSlug(strtolower($slugger->slug($creation->getTitle())));
             $entityManager->flush();
 
+            $this->addFlash('success', 'La création a bien été modifiée.');
             return $this->redirectToRoute('app.creation.index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -78,6 +80,9 @@ final class CreationController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$creation->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($creation);
             $entityManager->flush();
+            $this->addFlash('success', 'La création a bien été supprimée.');
+        } else {
+            $this->addFlash('error', 'Token invalide, la suppression a échoué.');
         }
 
         return $this->redirectToRoute('app.creation.index', [], Response::HTTP_SEE_OTHER);

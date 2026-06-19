@@ -7,5 +7,17 @@ import './stimulus_bootstrap.js';
  */
 import './styles/app.css';
 import './styles/utils.css';
+import './styles/image-modal.css';
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.flash').forEach(flash => {
+        setTimeout(() => {
+            flash.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            flash.style.opacity = '0';
+            flash.style.transform = 'translateY(-8px)';
+            flash.addEventListener('transitionend', () => flash.remove(), { once: true });
+        }, 10000);
+    });
+});
 
 

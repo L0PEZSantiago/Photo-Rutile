@@ -1,4 +1,9 @@
 {{ form_start(form, {'attr': {'class': 'creation-form'}}) }}
+{% if form.vars.errors|length %}
+    <div class="creation-form-global-error">
+        {{ form_errors(form) }}
+    </div>
+{% endif %}
 <div class="creation-form-field">
     {{ form_row(form.title) }}
 </div>

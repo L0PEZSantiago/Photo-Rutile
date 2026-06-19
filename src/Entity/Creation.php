@@ -9,9 +9,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: CreationRepository::class)]
 #[Vich\Uploadable]
+#[UniqueEntity(fields: ['title'], message: 'Ce titre est déjà utilisé par une autre création.')]
 class Creation
 {
     #[ORM\Id]

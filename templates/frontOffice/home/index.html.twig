@@ -65,7 +65,9 @@
 			{% for item in highlightedCreations %}
 				<div class="our-creations-card">
 					<div class="card-image">
-      <img src="{{ asset('images/creations/' ~ item.imageFilename) }}" alt="{{ item.title }}" />
+      <img src="{{ asset('images/creations/' ~ item.imageFilename) }}" alt="{{ item.title }}"
+           data-controller="image-modal"
+           data-action="click->image-modal#open" />
 					</div>
 					<h3>{{ item.title }}</h3>
 					<p class="card-description text-muted">{{ item.description }}</p>
