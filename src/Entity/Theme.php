@@ -7,8 +7,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ThemeRepository::class)]
+#[UniqueEntity(fields: ['name'], message: 'Ce nom de thème est déjà utilisé.')]
 class Theme
 {
     #[ORM\Id]
@@ -19,7 +21,7 @@ class Theme
     #[ORM\Column(length: 100, unique: true)]
     private ?string $name = null;
 
-    #[Gedmo\Slug(fields: ['name'])]
+    // #[Gedmo\Slug(fields: ['name'])]
     #[ORM\Column(length: 120, unique: true)]
     private ?string $slug = null;
 
@@ -58,6 +60,14 @@ class Theme
     {
         return $this->slug;
     }
+
+        public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
 
     public function isActive(): bool
     {

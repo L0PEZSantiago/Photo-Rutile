@@ -1,0 +1,11 @@
+{{ form_start(form, {'attr': {'class': 'theme-form'}}) }}
+{% if form.vars.errors|length %}
+    <div class="theme-form-global-error">
+        {{ form_errors(form) }}
+    </div>
+{% endif %}
+{{ form_widget(form) }}
+    <div class="theme-form-actions">
+        <button class="btn-primary theme-form-submit" type="submit">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+{{ form_end(form) }}

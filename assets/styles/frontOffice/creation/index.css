@@ -60,8 +60,12 @@
 display: flex;
 flex-direction: column;
 
-    .add-creation-btn {
-        margin-right: auto;
+.add-buttons {
+    display: flex;
+    gap: 1.4rem;
+}
+
+    .btn-admin {
         margin-bottom: 2rem;
     }
 }
@@ -201,6 +205,24 @@ svg {
 @media (max-width: 900px) {
     .creations-section .container {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575px) {
+    .filters-and-add {
+        margin-bottom: 2.4rem;
+    }
+    .add-buttons {
+        flex-direction: column;
+
+        .btn-admin {
+            width: 100%;
+            margin-bottom: 0;
+        }
+    }
+
+    .container {
+        padding: 0 !important;
     }
 }
 

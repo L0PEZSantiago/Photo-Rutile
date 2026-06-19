@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app.theme.delete', {'id': theme.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer ce thème?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ theme.id) }}">
+    <button class="btn">{{ iconsCollection.trash|raw }}</button>
+</form>

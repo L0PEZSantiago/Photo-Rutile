@@ -32,7 +32,10 @@
 		</div>
 
         {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('app.creation.new') }}" class="add-creation-btn btn-primary">Ajouter une création</a>
+		<div class="add-buttons">
+            <a href="{{ path('app.creation.new') }}" class="add-creation-btn btn-primary btn-admin">+ Ajouter une création</a>
+            <a href="{{ path('app.theme.new') }}" class="add-theme-btn btn-primary btn-admin">+ Ajouter un thème</a>
+        </div>
         {% endif %}
 		</div>
 		

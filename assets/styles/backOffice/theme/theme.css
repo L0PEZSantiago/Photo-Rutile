@@ -1,0 +1,16 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.theme-infos {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 0.5rem;
+}

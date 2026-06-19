@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau thème{% endblock %}
+
+{% block importmap %}
+    {{ parent() }}
+    {{ importmap('theme-form') }}
+{% endblock %}
+
+{% block main %}
+    <section class="theme-form-page">
+        <div class="theme-form-shell">
+            <div class="theme-form-heading">
+                <h1>Nouveau thème</h1>
+            </div>
+
+            {% include 'backOffice/theme/_form.html.twig' %}
+
+            <a class="theme-form-back" href="{{ path('app.theme.index') }}">Retour aux thèmes</a>
+        </div>
+    </section>
+{% endblock %}

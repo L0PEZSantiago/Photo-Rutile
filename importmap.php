@@ -55,6 +55,16 @@ return [
         'path' => './assets/scripts/backOffice/form/creation-form.js',
         'entrypoint' => true,
     ],
+    
+    'theme-form' => [
+        'path' => './assets/scripts/backOffice/form/theme-form.js',
+        'entrypoint' => true,
+    ],
+    
+    'theme' => [
+        'path' => './assets/scripts/backOffice/theme/theme.js',
+        'entrypoint' => true,
+    ],
 
     'login' => [
         'path' => './assets/scripts/backOffice/login/login.js',

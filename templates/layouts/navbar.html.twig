@@ -12,6 +12,11 @@
 				<li>
 					<a href="{{ path('app.creation.index') }}">Créations</a>
 				</li>
+				{% if is_granted('ROLE_ADMIN') %}
+				<li>
+					<a href="{{ path('app.theme.index') }}">Thèmes</a>
+				</li>
+				{% endif %}
 				<li>
 					<a href="{{ path('app.contact') }}">Contact</a>
 				</li>
@@ -67,6 +72,11 @@
 			<li>
 				<a href="{{ path('app.creation.index') }}" data-action="click->burger#close">Créations</a>
 			</li>
+			{% if is_granted('ROLE_ADMIN') %}
+			<li>
+				<a href="{{ path('app.theme.index') }}" data-action="click->burger#close">Thèmes</a>
+			</li>
+			{% endif %}
 			<li>
 				<a href="{{ path('app.contact') }}" data-action="click->burger#close">Contact</a>
 			</li>
