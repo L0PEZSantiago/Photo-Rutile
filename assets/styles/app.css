@@ -113,9 +113,20 @@ footer {
     }
 
     .footer-copyright {
-        margin-bottom: 1rem;
+        margin-bottom: 0.25rem;
         color: rgba(255, 255, 255, 0.493) !important;
         font-size: 0.875rem;
+    }
+
+    .footer-made-by {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.35) !important;
+        margin: 0;
+
+        strong {
+            color: rgba(255, 255, 255, 0.55) !important;
+            font-weight: 600;
+        }
     }
 }
 
