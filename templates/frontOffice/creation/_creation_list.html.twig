@@ -2,7 +2,7 @@
   {% for creation in creations %}
     <div class="creation">
       {% if creation.imageFilename %}
-        <img src="{{ asset('images/creations/' ~ creation.imageFilename) }}" alt="{{ creation.title }}"
+        <img data-img-native-url="{{ asset('images/creations/' ~ creation.imageFilename) }}" src="{{ asset('images/creations/' ~ creation.imageFilename) | imagine_filter('creation_thumbnail') }}" alt="{{ creation.title }}"
              data-controller="image-modal"
              data-action="click->image-modal#open" />
       {% endif %}

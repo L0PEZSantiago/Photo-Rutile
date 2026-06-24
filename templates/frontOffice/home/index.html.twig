@@ -65,7 +65,7 @@
 			{% for item in highlightedCreations %}
 				<div class="our-creations-card">
 					<div class="card-image">
-      <img src="{{ asset('images/creations/' ~ item.imageFilename) }}" alt="{{ item.title }}"
+      <img src="{{ asset('images/creations/' ~ item.imageFilename) | imagine_filter('creation_thumbnail') }}" alt="{{ item.title }}"
            data-controller="image-modal"
            data-action="click->image-modal#open" />
 					</div>
@@ -73,41 +73,6 @@
 					<p class="card-description text-muted">{{ item.description }}</p>
 				</div>
 			{% endfor %}
-				{# <div class="our-creations-card">
-					<div class="card-image">
-						<img src="https://picsum.photos/600/400?random=1" alt="Planche à découper">
-					</div>
-					<h3>Planche à découper</h3>
-					<p class="card-description text-muted">Bois massif sculpté et fini à la main.</p>
-				</div>
-				<div class="our-creations-card">
-					<div class="card-image">
-						<img src="https://picsum.photos/600/400?random=2" alt="Bol tourné">
-					</div>
-					<h3>Bol tourné</h3>
-					<p class="card-description text-muted">Tournage sur bois.</p>
-				</div>
-				<div class="our-creations-card">
-					<div class="card-image">
-						<img src="https://picsum.photos/600/400?random=3" alt="Bol tourné">
-					</div>
-					<h3>Boîte à bijoux</h3>
-					<p class="card-description text-muted">Gravure artisanale sur mesure.</p>
-				</div>
-				<div class="our-creations-card">
-					<div class="card-image">
-						<img src="https://picsum.photos/600/400?random=4" alt="Calendrier de l'Avent">
-					</div>
-					<h3>Calendrier de l'Avent</h3>
-					<p class="card-description text-muted">Bois massif sculpté et décoré.</p>
-				</div>
-				<div class="our-creations-card">
-					<div class="card-image">
-						<img src="https://picsum.photos/600/400?random=5" alt="Porte-clefs">
-					</div>
-					<h3>Porte-clefs</h3>
-					<p class="card-description text-muted">Artisanat traditionnel.</p>
-				</div> #}
 			</div>
 		<a href={{ path('app.creation.index') }} class="btn-primary">Voir les créations</a>
 		</div>

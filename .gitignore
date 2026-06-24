@@ -7,6 +7,13 @@
 /public/bundles/
 /var/
 /vendor/
+
+# Images uploadées
+public/images/creations/
+
+# Cache liip/imagine
+public/media/
+
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

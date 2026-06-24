@@ -10,7 +10,7 @@ export default class extends Controller {
         const modal = document.createElement('div');
         modal.className = 'image-modal';
         modal.innerHTML = `
-            <img src="${img.src}" alt="${img.alt}" class="image-modal-img">
+            <img src="${img.dataset.imgNativeUrl}" alt="${img.alt}" class="image-modal-img">
             <button class="image-modal-close" aria-label="Fermer">&times;</button>
         `;
         modal.addEventListener('click', (e) => {
