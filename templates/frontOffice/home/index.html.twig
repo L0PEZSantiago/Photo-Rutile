@@ -65,7 +65,7 @@
 			{% for item in highlightedCreations %}
 				<div class="our-creations-card">
 					<div class="card-image">
-      <img src="{{ asset('images/creations/' ~ item.imageFilename) | imagine_filter('creation_thumbnail') }}" alt="{{ item.title }}"
+      <img data-img-native-url="{{ asset('images/creations/' ~ item.imageFilename) }}" src="{{ asset('images/creations/' ~ item.imageFilename) | imagine_filter('creation_thumbnail') }}" alt="{{ item.title }}"
            data-controller="image-modal"
            data-action="click->image-modal#open" />
 					</div>
