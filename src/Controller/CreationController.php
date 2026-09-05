@@ -49,13 +49,6 @@ final class CreationController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/details', name: 'app.creation.show', methods: ['GET'])]
-    public function show(Creation $creation): Response
-    {
-        return $this->render('frontOffice/creation/show.html.twig', [
-            'creation' => $creation,
-        ]);
-    }
 
     #[Route('/{id}/modifier', name: 'app.creation.edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Creation $creation, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response

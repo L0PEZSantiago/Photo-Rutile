@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Repository\CreationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -11,10 +10,10 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class SitemapController extends AbstractController
 {
     #[Route('/sitemap.xml', name: 'app.sitemap', defaults: ['_format' => 'xml'])]
-    public function index(CreationRepository $creationRepository): Response
+    public function index(): Response
     {
-        // Pages statiques publiques
-        $staticUrls = [
+        // Pages publiques indexables
+        $urls = [
             [
                 'loc'        => $this->generateUrl('app.home', [], UrlGeneratorInterface::ABSOLUTE_URL),
                 'lastmod'    => null,
@@ -41,30 +40,13 @@ class SitemapController extends AbstractController
             ],
         ];
 
-        // Pages dynamiques : détail de chaque création publiée
-        $creations = $creationRepository->findBy(['isPublished' => true]);
-        $dynamicUrls = [];
-
-        foreach ($creations as $creation) {
-            $lastmod = $creation->getUpdatedAt() ?? $creation->getCreatedAt();
-
-            $dynamicUrls[] = [
-                'loc'        => $this->generateUrl('app.creation.show', ['id' => $creation->getId()], UrlGeneratorInterface::ABSOLUTE_URL),
-                'lastmod'    => $lastmod?->format('Y-m-d'),
-                'changefreq' => 'monthly',
-                'priority'   => '0.8',
-            ];
-        }
-
-        $urls = array_merge($staticUrls, $dynamicUrls);
-
         $response = new Response(
             $this->renderView('sitemap/sitemap.xml.twig', ['urls' => $urls]),
             Response::HTTP_OK,
             ['Content-Type' => 'application/xml']
         );
 
-        // Cache public de 24h pour éviter de requêter la BDD à chaque visite de bot
+        // Cache public de 24h
         $response->setPublic();
         $response->setMaxAge(86400);
 
