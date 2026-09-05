@@ -1,60 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}PhotoRutile — Artisanat en bois fait main{% endblock %}</title>
-        <meta name="description" content="{% block meta_description %}Découvrez PhotoRutile, des créations artisanales en bois uniques, façonnées à la main avec passion.{% endblock %}">
-        <meta name="theme-color" content="#2E251F">
 
-        <link rel="icon" type="image/png" href="/icon512_rounded.png">
-        <link rel="apple-touch-icon" href="/icon512_maskable.png">
-        <link rel="manifest" href="/manifest.json">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}PhotoRutile — Artisanat en bois fait main{% endblock %}</title>
+    <meta name="description"
+        content="{% block meta_description %}Découvrez PhotoRutile, des créations artisanales en bois uniques, façonnées à la main avec passion.{% endblock %}">
+    <meta name="theme-color" content="#2E251F">
 
-        {% block stylesheets %}
+    <link rel="icon" type="image/png" href="/icon512_rounded.png">
+    <link rel="apple-touch-icon" href="/icon512_maskable.png">
+    <link rel="manifest" href="/manifest.json">
+
+    {% block stylesheets %}
+    {% endblock %}
+
+    {% block javascripts %}
+    {% block importmap %}{{ importmap(['app', 'navbar']) }}{% endblock %}
+    {% endblock %}
+
+    {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
+    {% if frankenphpHotReload %}
+    <meta name="frankenphp-hot-reload:url" content="{{ frankenphpHotReload }}">
+    <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
+    <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
+    {% endif %}
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HL0WLMVPFS"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HL0WLMVPFS');
+</script>
+
+<body data-turbo="false">
+    {% block body %}
+    <header>
+        {% block header %}
+        {% include 'layouts/navbar.html.twig' %}
         {% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap(['app', 'navbar']) }}{% endblock %}
+    </header>
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        {% include 'layouts/footer.html.twig' %}
         {% endblock %}
+    </footer>
+    {% endblock %}
 
-        {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
-        {% if frankenphpHotReload %}
-        <meta name="frankenphp-hot-reload:url" content="{{ frankenphpHotReload }}">
-        <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
-        <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
-        {% endif %}
+    {% set flashes = app.flashes(['success', 'error', 'warning']) %}
+    {% if flashes|length %}
+    <div class="flash-container">
+        {% for type, messages in flashes %}
+        {% for message in messages %}
+        <div class="flash flash--{{ type }}" role="alert">{{ message }}</div>
+        {% endfor %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
 
-    </head>
-    <body data-turbo="false">
-        {% block body %}
-        <header>
-         {% block header %}
-         {% include 'layouts/navbar.html.twig' %}
-         {% endblock %}
-
-        </header>
-
-        <main>
-            {% block main %}{% endblock %}
-        </main>
-
-        <footer>
-            {% block footer %}
-            {% include 'layouts/footer.html.twig' %}
-            {% endblock %}
-        </footer>
-        {% endblock %}
-
-        {% set flashes = app.flashes(['success', 'error', 'warning']) %}
-        {% if flashes|length %}
-        <div class="flash-container">
-            {% for type, messages in flashes %}
-                {% for message in messages %}
-                    <div class="flash flash--{{ type }}" role="alert">{{ message }}</div>
-                {% endfor %}
-            {% endfor %}
-        </div>
-        {% endif %}
-    </body>
 </html>
