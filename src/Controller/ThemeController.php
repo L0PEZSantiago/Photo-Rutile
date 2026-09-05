@@ -28,7 +28,7 @@ final class ThemeController extends AbstractController
         ]);
     }
     
-    #[Route('/new', name: 'app.theme.new', methods: ['GET', 'POST'])]
+    #[Route('/nouveau-theme', name: 'app.theme.new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         $theme = new Theme();
@@ -50,7 +50,7 @@ final class ThemeController extends AbstractController
         ]);
     }
     
-    #[Route('/{id}/edit', name: 'app.theme.edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/modifier', name: 'app.theme.edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Theme $theme, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(ThemeType::class, $theme);

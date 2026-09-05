@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Pages d'administration et d'authentification : ne pas indexer
+Disallow: /login
+Disallow: /logout
+Disallow: /creations/nouvelle-creation
+Disallow: /creations/*/supprimer
+Disallow: /creations/*/modifier
+Disallow: /themes/nouveau-theme
+Disallow: /themes/*/supprimer
+Disallow: /themes/*/modifier
+
+Sitemap: https://photorutile.fr/sitemap.xml
